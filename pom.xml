@@ -14,6 +14,10 @@
 			<name>Balázs Kovács</name>
 		</developer>
 	</developers>
+	
+	<properties>
+		<manuscript-security-general.version>0.0.1-SNAPSHOT</manuscript-security-general.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -27,6 +31,7 @@
 		<dependency>
 			<groupId>manuscript.framework.security</groupId>
 			<artifactId>manuscript-security-general</artifactId>
+			<version>${manuscript-security-general.version}</version>
 		</dependency>
 	</dependencies>
 
