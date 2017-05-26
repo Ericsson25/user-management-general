@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="create-table-usr-user" author="balazskovacs">
+		<createTable tableName="USR_USER">
+			<column name="USER_ID" type="INT(5)">
+				<constraints primaryKey="true" foreignKeyName="fk_user_user_id" referencedTableName="USR_ALIAS" referencedColumnNames="USER_ID" />
+			</column>
+			<column name="TITLE" type="VARCHAR(10)" />
+			<column name="FIRST_NAME" type="VARCHAR(50)" />
+			<column name="LAST_NAME" type="VARCHAR(50)" />
+			<column name="EMAIL" type="VARCHAR(100)" />
+			<column name="JOB" type="VARCHAR(100)" />
+		</createTable>
+	</changeSet>
+</databaseChangeLog>

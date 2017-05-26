@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="create-table-usr-academic-disciplines" author="balazskovacs">
+		<createTable tableName="USR_ACADEMIC_DISCIPLINES">
+			<column name="ID" type="INT(5)" autoIncrement="true" startWith="1" incrementBy="1">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="ACADEMIC_DISCIPLINES_ID" type="VARCHAR(20)">
+				<constraints foreignKeyName="fk_usr_disciplines_disciplines_id" referencedTableName="ACADEMIC_DISCIPLINES" referencedColumnNames="ACADEMIC_DISCIPLINES_ID" />
+			</column>
+			<column name="USER_ID" type="INT(5)">
+				<constraints foreignKeyName="fk_usr_disciplines_user_id" referencedTableName="USR_ALIAS" referencedColumnNames="USER_ID" />
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>

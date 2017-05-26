@@ -1,10 +1,10 @@
 package manuscript.module.user.management.exception;
 
-public class UserNameAlreadyUsedException extends RuntimeException {
+public class NameAlreadyReservedException extends RuntimeException {
 
 	private String errorMessage;
 
-	public UserNameAlreadyUsedException(String errorMessage) {
+	public NameAlreadyReservedException(String errorMessage) {
 		super();
 		this.errorMessage = errorMessage;
 	}
