@@ -7,7 +7,6 @@ import manuscript.module.user.management.bean.User;
 import manuscript.module.user.management.request.SavePersonalDataRequest;
 import manuscript.module.user.management.request.UpdateAcademicDisciplinesRequest;
 import manuscript.module.user.management.request.UpdatePassword;
-import manuscript.system.security.core.userdetails.ExtendedUserDetails;
 
 /**
  * 
@@ -16,7 +15,7 @@ import manuscript.system.security.core.userdetails.ExtendedUserDetails;
  */
 public interface PersonalDataSettingsDao {
 
-	public User getUserData(ExtendedUserDetails authenticatedUser);
+	public User getUserData(String userId);
 
 	public List<AcademicDisciplines> getAcademicDisciplinesByUserId(String userId);
 

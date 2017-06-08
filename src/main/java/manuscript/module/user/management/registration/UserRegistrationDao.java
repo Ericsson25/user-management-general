@@ -4,6 +4,7 @@ import java.util.List;
 
 import manuscript.module.user.management.bean.AdditionalData;
 import manuscript.module.user.management.bean.Role;
+import manuscript.module.user.management.bean.User;
 import manuscript.module.user.management.request.UserRegistrationRequest;
 
 /**
@@ -17,5 +18,5 @@ public interface UserRegistrationDao {
 
 	public List<Role> getDefaultRole();
 
-	public void createRegistration(UserRegistrationRequest request, AdditionalData additionalData);
+	public User createRegistration(UserRegistrationRequest request, AdditionalData additionalData);
 }
