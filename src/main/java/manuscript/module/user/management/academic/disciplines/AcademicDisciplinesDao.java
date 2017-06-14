@@ -19,4 +19,20 @@ public interface AcademicDisciplinesDao {
 	public AcademicDisciplines getSingleDisciplinesById(String disciplinesId);
 
 	public void removeDisciplinesById(String disciplinesId);
+
+	/**
+	 * Visszaadja a felhasználó összes mentett {@link AcademicDisciplines}-ét.
+	 * 
+	 * @param userId
+	 * @return {@link List}, mely tartalmazza az {@link AcademicDisciplines}-eket.
+	 */
+	public List<AcademicDisciplines> getDisciplinesByUserId(String userId);
+
+	/**
+	 * Updateli a meglévõ {@link AcademicDisciplines}-eket, ha létezik már az adott ID-vel. Ha nem, akkor beszúr egy újat az adott felhasználóhoz
+	 * 
+	 * @param userId
+	 * @param academicDisciplines
+	 */
+	public void updateDisciplinesByUserId(String userId, List<AcademicDisciplines> academicDisciplines);
 }
