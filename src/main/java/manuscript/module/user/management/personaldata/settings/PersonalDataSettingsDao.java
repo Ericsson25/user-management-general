@@ -5,7 +5,6 @@ import manuscript.module.user.management.request.SavePersonalDataRequest;
 import manuscript.module.user.management.request.UpdatePassword;
 
 /**
- * 
  * @author Balazs Kovacs
  *
  */
