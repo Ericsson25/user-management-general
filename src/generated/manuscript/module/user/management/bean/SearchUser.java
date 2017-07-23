@@ -9,11 +9,10 @@
 package manuscript.module.user.management.bean;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import org.jvnet.jaxb2_commons.lang.HashCode2;
 import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
@@ -26,22 +25,19 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
- * <p>Java class for user complex type.
+ * <p>Java class for searchUser complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="user"&gt;
+ * &lt;complexType name="searchUser"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="FirstName" type="{http://manuscript/module/user/management/bean}nameType"/&gt;
- *         &lt;element name="LastName" type="{http://manuscript/module/user/management/bean}nameType"/&gt;
- *         &lt;element name="UserName" type="{http://manuscript/module/user/management/bean}nameType"/&gt;
- *         &lt;element name="Job" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Email" type="{http://manuscript/module/user/management/bean}emailType"/&gt;
- *         &lt;element name="UserId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="FirstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="LastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Email" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Role" type="{http://manuscript/module/user/management/bean}roles"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -51,67 +47,28 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "user", propOrder = {
-    "title",
+@XmlType(name = "searchUser", propOrder = {
     "firstName",
     "lastName",
-    "userName",
-    "job",
     "email",
-    "userId"
+    "role"
 })
-public class User implements HashCode2, ToString2
+public class SearchUser implements HashCode2, ToString2
 {
 
-    @XmlElement(name = "Title", required = true)
-    @NotNull
-    protected String title;
     @XmlElement(name = "FirstName", required = true)
     @NotNull
-    @Size(min = 3, max = 50)
     protected String firstName;
     @XmlElement(name = "LastName", required = true)
     @NotNull
-    @Size(min = 3, max = 50)
     protected String lastName;
-    @XmlElement(name = "UserName", required = true)
-    @NotNull
-    @Size(min = 3, max = 50)
-    protected String userName;
-    @XmlElement(name = "Job", required = true)
-    @NotNull
-    protected String job;
     @XmlElement(name = "Email", required = true)
     @NotNull
-    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     protected String email;
-    @XmlElement(name = "UserId", required = true)
+    @XmlElement(name = "Role", required = true)
+    @XmlSchemaType(name = "string")
     @NotNull
-    protected String userId;
-
-    /**
-     * Gets the value of the title property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * Sets the value of the title property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTitle(String value) {
-        this.title = value;
-    }
+    protected Roles role;
 
     /**
      * Gets the value of the firstName property.
@@ -162,54 +119,6 @@ public class User implements HashCode2, ToString2
     }
 
     /**
-     * Gets the value of the userName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUserName() {
-        return userName;
-    }
-
-    /**
-     * Sets the value of the userName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUserName(String value) {
-        this.userName = value;
-    }
-
-    /**
-     * Gets the value of the job property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getJob() {
-        return job;
-    }
-
-    /**
-     * Sets the value of the job property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setJob(String value) {
-        this.job = value;
-    }
-
-    /**
      * Gets the value of the email property.
      * 
      * @return
@@ -234,27 +143,27 @@ public class User implements HashCode2, ToString2
     }
 
     /**
-     * Gets the value of the userId property.
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Roles }
      *     
      */
-    public String getUserId() {
-        return userId;
+    public Roles getRole() {
+        return role;
     }
 
     /**
-     * Sets the value of the userId property.
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Roles }
      *     
      */
-    public void setUserId(String value) {
-        this.userId = value;
+    public void setRole(Roles value) {
+        this.role = value;
     }
 
     public String toString() {
@@ -273,11 +182,6 @@ public class User implements HashCode2, ToString2
 
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
         {
-            String theTitle;
-            theTitle = this.getTitle();
-            strategy.appendField(locator, this, "title", buffer, theTitle, (this.title!= null));
-        }
-        {
             String theFirstName;
             theFirstName = this.getFirstName();
             strategy.appendField(locator, this, "firstName", buffer, theFirstName, (this.firstName!= null));
@@ -288,35 +192,20 @@ public class User implements HashCode2, ToString2
             strategy.appendField(locator, this, "lastName", buffer, theLastName, (this.lastName!= null));
         }
         {
-            String theUserName;
-            theUserName = this.getUserName();
-            strategy.appendField(locator, this, "userName", buffer, theUserName, (this.userName!= null));
-        }
-        {
-            String theJob;
-            theJob = this.getJob();
-            strategy.appendField(locator, this, "job", buffer, theJob, (this.job!= null));
-        }
-        {
             String theEmail;
             theEmail = this.getEmail();
             strategy.appendField(locator, this, "email", buffer, theEmail, (this.email!= null));
         }
         {
-            String theUserId;
-            theUserId = this.getUserId();
-            strategy.appendField(locator, this, "userId", buffer, theUserId, (this.userId!= null));
+            Roles theRole;
+            theRole = this.getRole();
+            strategy.appendField(locator, this, "role", buffer, theRole, (this.role!= null));
         }
         return buffer;
     }
 
     public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
         int currentHashCode = 1;
-        {
-            String theTitle;
-            theTitle = this.getTitle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle, (this.title!= null));
-        }
         {
             String theFirstName;
             theFirstName = this.getFirstName();
@@ -328,24 +217,14 @@ public class User implements HashCode2, ToString2
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lastName", theLastName), currentHashCode, theLastName, (this.lastName!= null));
         }
         {
-            String theUserName;
-            theUserName = this.getUserName();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "userName", theUserName), currentHashCode, theUserName, (this.userName!= null));
-        }
-        {
-            String theJob;
-            theJob = this.getJob();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "job", theJob), currentHashCode, theJob, (this.job!= null));
-        }
-        {
             String theEmail;
             theEmail = this.getEmail();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "email", theEmail), currentHashCode, theEmail, (this.email!= null));
         }
         {
-            String theUserId;
-            theUserId = this.getUserId();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "userId", theUserId), currentHashCode, theUserId, (this.userId!= null));
+            Roles theRole;
+            theRole = this.getRole();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole, (this.role!= null));
         }
         return currentHashCode;
     }
