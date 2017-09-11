@@ -37,7 +37,7 @@
 			<xsd:element name="UserName" type="nameType" />
 			<xsd:element name="Job" type="xsd:string" />
 			<xsd:element name="Email" type="emailType" />
-			<xsd:element name="UserId" type="xsd:string" />
+			<xsd:element name="UserId" type="xsd:string" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
